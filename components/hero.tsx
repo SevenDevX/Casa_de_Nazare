@@ -54,7 +54,7 @@ export function Hero() {
               <div className="flex justify-center mb-2">
                 <Heart className="h-8 w-8 text-primary" />
               </div>
-              <div className="text-3xl font-bold text-foreground mb-1">24</div>
+              <div className="text-3xl font-bold text-foreground mb-1">25</div>
               <div className="text-muted-foreground">Anos de dedicação</div>
             </div>
             <div className="text-center">
