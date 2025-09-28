@@ -1,10 +1,7 @@
-"use client"
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Brain, MessageCircle, BookOpen, ArrowRight } from "lucide-react"
-import Image from "next/image"
 
 export function ServicesPreview() {
   const services = [
@@ -14,24 +11,18 @@ export function ServicesPreview() {
       description:
         "Atendimento psicológico individual e em grupo para todas as idades, promovendo saúde mental e bem-estar emocional.",
       href: "/servicos/psicoterapia",
-      image: "/psicoterapia-session-therapy-room.jpg",
-      imageAlt: "Sessão de psicoterapia em andamento",
     },
     {
       icon: MessageCircle,
       title: "Fonoaudiologia",
       description: "Tratamento especializado para distúrbios da comunicação, linguagem, fala, voz e audição.",
       href: "/servicos/fonoaudiologia",
-      image: "/speech-therapy-equipment-room.jpg",
-      imageAlt: "Atendimento fonoaudiológico",
     },
     {
       icon: BookOpen,
       title: "Psicopedagogia",
       description: "Apoio especializado para dificuldades de aprendizagem, auxiliando no desenvolvimento educacional.",
       href: "/servicos/psicopedagogia",
-      image: "/psychology-consultation-room-professional.jpg",
-      imageAlt: "Sessão de psicopedagogia",
     },
   ]
 
@@ -52,24 +43,14 @@ export function ServicesPreview() {
           {services.map((service, index) => (
             <Card
               key={index}
-              className="group hover:shadow-xl transition-all duration-500 border-border/40 hover:border-primary/20 overflow-hidden hover:-translate-y-2"
+              className="group hover:shadow-lg transition-all duration-300 border-border/40 hover:border-primary/20"
             >
-              <div className="relative h-48 overflow-hidden">
-                <Image
-                  src={service.image || "/placeholder.svg"}
-                  alt={service.imageAlt}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute bottom-4 left-4">
-                  <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                    <service.icon className="h-6 w-6 text-white" />
+              <CardHeader className="text-center pb-4">
+                <div className="flex justify-center mb-4">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                    <service.icon className="h-8 w-8 text-primary" />
                   </div>
                 </div>
-              </div>
-
-              <CardHeader className="text-center pb-4">
                 <CardTitle className="text-xl font-semibold text-foreground">{service.title}</CardTitle>
               </CardHeader>
               <CardContent className="text-center">

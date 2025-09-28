@@ -22,17 +22,6 @@ export const metadata: Metadata = {
   formatDetection: {
     telephone: false,
   },
-  icons: {
-    icon: [
-      { url: "/icons/icon-16x16.jpg", sizes: "16x16", type: "image/jpeg" },
-      { url: "/icons/icon-32x32.jpg", sizes: "32x32", type: "image/jpeg" },
-    ],
-    apple: [{ url: "/icons/icon-192x192.jpg", sizes: "192x192", type: "image/jpeg" }],
-  },
-  other: {
-    "msapplication-TileColor": "#C23B2D",
-    "msapplication-config": "/browserconfig.xml",
-  },
 }
 
 export default function RootLayout({
@@ -42,6 +31,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#C23B2D" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Casa de Nazaré" />
+        <link rel="apple-touch-icon" href="/icons/icon-192x192.jpg" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32x32.jpg" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16x16.jpg" />
+        <meta name="msapplication-TileColor" content="#C23B2D" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
+      </head>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
