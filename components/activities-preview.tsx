@@ -1,7 +1,10 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Palette, Scissors, Music, Zap, ArrowRight, Users } from "lucide-react"
+import Image from "next/image"
 
 export function ActivitiesPreview() {
   const activities = [
@@ -10,24 +13,32 @@ export function ActivitiesPreview() {
       title: "Pintura em Tecido",
       description: "Desenvolva sua criatividade através da arte, aprendendo técnicas de pintura em tecido.",
       participants: "15 participantes",
+      image: "/painting-art-creative-workshop.jpg",
+      imageAlt: "Participantes pintando em tecido",
     },
     {
       icon: Scissors,
       title: "Corte e Costura",
       description: "Aprenda habilidades práticas de costura e desenvolva uma nova profissão.",
       participants: "20 participantes",
+      image: "/sewing-workshop-crafts.jpg",
+      imageAlt: "Aula de corte e costura",
     },
     {
       icon: Music,
       title: "Balé",
       description: "Expressão corporal e artística através da dança clássica para todas as idades.",
       participants: "25 participantes",
+      image: "/ballet-studio-mirrors-barre-dance.jpg",
+      imageAlt: "Aula de balé em andamento",
     },
     {
       icon: Zap,
       title: "Jiu-Jitsu",
       description: "Arte marcial que desenvolve disciplina, respeito e condicionamento físico.",
       participants: "30 participantes",
+      image: "/jiu-jitsu-martial-arts-training.jpg",
+      imageAlt: "Treino de jiu-jitsu",
     },
   ]
 
@@ -46,29 +57,42 @@ export function ActivitiesPreview() {
           {activities.map((activity, index) => (
             <Card
               key={index}
-              className="group hover:shadow-lg transition-all duration-300 border-border/40 hover:border-primary/20 bg-card/50"
+              className="group hover:shadow-xl transition-all duration-500 border-border/40 hover:border-primary/20 bg-card/50 overflow-hidden hover:-translate-y-2"
             >
-              <CardHeader className="text-center pb-4">
-                <div className="flex justify-center mb-4">
-                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                    <activity.icon className="h-7 w-7 text-primary" />
+              <div className="relative h-40 overflow-hidden">
+                <Image
+                  src={activity.image || "/placeholder.svg"}
+                  alt={activity.imageAlt}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute bottom-3 left-3">
+                  <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                    <activity.icon className="h-5 w-5 text-white" />
                   </div>
                 </div>
+                <div className="absolute top-3 right-3 bg-primary/90 backdrop-blur-sm px-2 py-1 rounded-full">
+                  <div className="flex items-center space-x-1 text-xs text-white">
+                    <Users className="h-3 w-3" />
+                    <span>{activity.participants.split(" ")[0]}</span>
+                  </div>
+                </div>
+              </div>
+
+              <CardHeader className="text-center pb-3">
                 <CardTitle className="text-lg font-semibold text-foreground">{activity.title}</CardTitle>
               </CardHeader>
               <CardContent className="text-center">
                 <p className="text-muted-foreground mb-4 text-sm text-pretty">{activity.description}</p>
-                <div className="flex items-center justify-center space-x-2 text-xs text-muted-foreground">
-                  <Users className="h-3 w-3" />
-                  <span>{activity.participants}</span>
-                </div>
+                <div className="text-xs text-muted-foreground">{activity.participants}</div>
               </CardContent>
             </Card>
           ))}
         </div>
 
         <div className="text-center">
-          <Button size="lg" asChild>
+          <Button size="lg" asChild className="hover:shadow-lg transition-shadow duration-300">
             <Link href="/atividades">
               Ver todas as atividades
               <ArrowRight className="ml-2 h-5 w-5" />
