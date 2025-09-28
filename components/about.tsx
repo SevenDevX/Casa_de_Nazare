@@ -147,7 +147,7 @@ export function About() {
             <div className="relative">
               <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
                 <div className="text-center">
-                  <div className="text-4xl md:text-5xl font-bold text-primary mb-2">24</div>
+                  <div className="text-4xl md:text-5xl font-bold text-primary mb-2">25</div>
                   <div className="text-lg text-foreground font-medium">Anos</div>
                   <div className="text-muted-foreground">de dedicação</div>
                 </div>

@@ -132,28 +132,25 @@ export function Hero() {
               </Button>
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
-              <div className="text-center">
-                <div className="flex justify-center mb-2">
-                  <Users className="h-8 w-8 text-white" />
-                </div>
-                <div className="text-3xl font-bold mb-1">500+</div>
-                <div className="opacity-90">Pessoas atendidas</div>
+          {/* Stats */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
+            <div className="text-center">
+              <div className="flex justify-center mb-2">
+                <Users className="h-8 w-8 text-primary" />
               </div>
-              <div className="text-center">
-                <div className="flex justify-center mb-2">
-                  <Heart className="h-8 w-8 text-white" />
-                </div>
-                <div className="text-3xl font-bold mb-1">24</div>
-                <div className="opacity-90">Anos de dedicação</div>
+              <div className="text-3xl font-bold text-foreground mb-1">500+</div>
+              <div className="text-muted-foreground">Pessoas atendidas</div>
+            </div>
+            <div className="text-center">
+              <div className="flex justify-center mb-2">
+                <Heart className="h-8 w-8 text-primary" />
               </div>
-              <div className="text-center">
-                <div className="flex justify-center mb-2">
-                  <Sparkles className="h-8 w-8 text-white" />
-                </div>
-                <div className="text-3xl font-bold mb-1">8</div>
-                <div className="opacity-90">Atividades oferecidas</div>
+              <div className="text-3xl font-bold text-foreground mb-1">24</div>
+              <div className="text-muted-foreground">Anos de dedicação</div>
+            </div>
+            <div className="text-center">
+              <div className="flex justify-center mb-2">
+                <Sparkles className="h-8 w-8 text-primary" />
               </div>
             </div>
           </div>
